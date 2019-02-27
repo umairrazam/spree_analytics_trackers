@@ -12,7 +12,9 @@
       'affiliation': '<%= current_store.name %>', // Affiliation (string).
       'revenue': '<%= @order.total %>',   // Revenue (currency).
       'tax': '<%= @order.tax_total %>',   // Tax.
-      'shipping': '<%= @order.ship_total %>' // Shipping.
+      'shipping': '<%= @order.ship_total %>'<% if !@order.promo_code.blank? %>, // Shipping.
+      'coupon': '<%= @order.promo_code %>' // Coupon.
+      <% end %>
     });
   }
   </script>

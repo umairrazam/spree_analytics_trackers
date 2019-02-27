@@ -1,5 +1,5 @@
-<% if can? :admin, Spree::Tracker %>
+<% if spree_current_user.admin? %>
   <ul class="nav nav-sidebar">
-    <%= tab :analytic_trackers, url: spree.admin_trackers_path, icon: 'tasks' %>
+    <li class="sidebar-menu-item"><a class="icon-link with-tip action-wrench" href="/admin/trackers"><span class="icon icon-wrench"></span> <span class="text">Analytics</span></a></li>
   </ul>
 <% end %>

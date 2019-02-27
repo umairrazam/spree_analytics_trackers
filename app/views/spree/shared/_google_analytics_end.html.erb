@@ -1,0 +1,5 @@
+<% if tracker = Spree::Tracker.current(:google_analytics) %>
+  <script>
+    ga('send', 'pageview');
+  </script>
+<% end %>
