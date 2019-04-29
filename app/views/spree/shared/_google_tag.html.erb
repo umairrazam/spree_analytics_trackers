@@ -1,0 +1,11 @@
+<% if Rails.configuration.x.trackers.ga_measurement_id.present? %>
+<!-- Global site tag (gtag.js) - Google Ads -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=<%= Rails.configuration.x.trackers.ga_measurement_id%>"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '<%= Rails.configuration.x.trackers.ga_measurement_id %>', { 'send_page_view': false });
+</script>
+<% end %>
