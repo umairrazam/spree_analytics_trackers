@@ -1,3 +1,5 @@
+# Not supported - DTL
+=begin
 spree_version = Gem.loaded_specs['spree_core'].version
 unless spree_version >= Gem::Version.create('3.4.0') && spree_version < Gem::Version.create('3.5.0')
   Deface::Override.new(
@@ -8,3 +10,4 @@ unless spree_version >= Gem::Version.create('3.4.0') && spree_version < Gem::Ver
     partial: 'spree/shared/trackers/segment/product_list_filtered.js'
   )
 end
+=end

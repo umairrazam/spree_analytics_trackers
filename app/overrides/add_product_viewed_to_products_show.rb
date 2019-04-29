@@ -1,3 +1,5 @@
+# Not supported - DTL
+=begin
 spree_version = Gem.loaded_specs['spree_core'].version
 unless spree_version >= Gem::Version.create('3.4.0') && spree_version < Gem::Version.create('3.5.0')
   Deface::Override.new(
@@ -8,3 +10,4 @@ unless spree_version >= Gem::Version.create('3.4.0') && spree_version < Gem::Ver
     original: '5426c263ccfe477b270b55024abebc77cf951c91' 
   )
 end
+=end
