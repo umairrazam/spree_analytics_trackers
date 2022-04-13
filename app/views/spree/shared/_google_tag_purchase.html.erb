@@ -1,11 +1,13 @@
-<% if order_just_completed?(@order) && Rails.configuration.x.trackers.ga_tag_confirmation.present? %>
-<!-- Event snippet for Confirmation Page conversion page -->
+<% if order_just_completed?(@order) && Rails.configuration.x.trackers.google_tag_manager.present? %>
+<!-- Google Tag Manager purchase event snippet for Confirmation Page -->
 <script>
-  gtag('event', 'conversion', {
-    'send_to': '<%= Rails.configuration.x.trackers.ga_tag_confirmation %>',
-    'value': <%= @order.total %>,
-    'currency': 'USD',
-    'transaction_id': '<%= @order.number %>'
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'JFpurchase',
+    'orderID': '<%= @order.number %>',
+    'conversionValue': <%= @order.total %>,
+    'currencyCode': 'USD',
+    'email': '<%= @order.email %>'
   });
 </script>
 <% end %>
