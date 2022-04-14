@@ -1,17 +1,14 @@
 module SpreeAnalyticsTrackers
   module Generators
     class InstallGenerator < Rails::Generators::Base
-
       class_option :auto_run_migrations, type: :boolean, default: false
 
       def add_javascripts
-        append_file 'vendor/assets/javascripts/spree/frontend/all.js', "//= require spree/frontend/spree_analytics_trackers\n"
-        append_file 'vendor/assets/javascripts/spree/backend/all.js', "//= require spree/backend/spree_analytics_trackers\n"
-      end
+        javascripts_path = 'vendor/assets/javascripts/spree/frontend/all.js'
+        return unless File.file?(javascripts_path)
 
-      def add_stylesheets
-        inject_into_file 'vendor/assets/stylesheets/spree/frontend/all.css', " *= require spree/frontend/spree_analytics_trackers\n", before: /\*\//, verbose: true
-        inject_into_file 'vendor/assets/stylesheets/spree/backend/all.css', " *= require spree/backend/spree_analytics_trackers\n", before: /\*\//, verbose: true
+        append_file 'vendor/assets/javascripts/spree/frontend/all.js', "//= require spree/frontend/add_to_cart_analytics\n"
+        append_file 'vendor/assets/javascripts/spree/frontend/all.js', "//= require spree/frontend/remove_from_cart_analytics\n"
       end
 
       def add_migrations
