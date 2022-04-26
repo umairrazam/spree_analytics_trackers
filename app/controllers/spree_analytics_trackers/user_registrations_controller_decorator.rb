@@ -1,11 +1,3 @@
-module SpreeAnalyticsTrackers
-  module UserRegistrationsControllerDecorator
-    def self.included(base)
-      base.helper 'spree/trackers'
-    end
-  end
-end
-
-if defined?(Spree::UserRegistrationsController)
-  ::Spree::UserRegistrationsController.include(::SpreeAnalyticsTrackers::UserRegistrationsControllerDecorator)
+Spree::UserRegistrationsController.class_eval do
+  	helper 'spree/trackers'
 end
